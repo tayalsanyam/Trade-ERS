@@ -1,0 +1,69 @@
+[ANTHROPIC]
+# Claude Sonnet API Configuration
+# Get your API key from: https://console.anthropic.com/
+api_key = YOUR_ANTHROPIC_API_KEY
+model = claude-sonnet-4-20250514
+max_tokens = 4096
+temperature = 0.3
+
+[FYERS]
+# Fyers API Configuration (loaded from config_fyers.ini)
+# Leave these empty - they will be loaded from config_fyers.ini
+access_token =
+client_id =
+
+[TRADING]
+# Core Trading Parameters
+index = NIFTY
+lot_size = 75
+expiry_date = 2025-11-04
+trade_funds_percent = 0.90
+max_daily_trades = 50
+
+# Trading Hours (IST)
+start_time = 09:40
+end_time = 14:50
+check_interval_seconds = 60
+
+[RISK_MANAGEMENT]
+# Daily Target & Limits
+daily_win_target = 10
+max_consecutive_wins = 10
+max_consecutive_losses = 3
+
+# Stop Loss & Profit Targets
+initial_stop_loss_percent = 3.0
+trailing_stop_distance = 2.5
+target_profit_percent = 3.0
+
+# Streak-Based Position Sizing
+base_position_multiplier = 1.0
+win_streak_multiplier = 1.2
+loss_reduction_multiplier = 0.5
+
+# P&L Limits
+daily_loss_limit = -5.0
+daily_profit_limit = 12.0
+
+[AGENTS]
+# Agent Configuration
+sentiment_weight = 0.30
+indicator_weight = 0.35
+price_action_weight = 0.35
+
+# Decision Threshold
+min_confidence_threshold = 0.65
+
+[MEMORY]
+# State Management
+track_last_n_trades = 50
+save_state_interval = 300
+state_file = data/agent_state.json
+
+[LOGGING]
+# Logging Configuration
+log_dir = logs/
+agent_log_file = deepseek_agent.log
+trade_log_file = agent_trades.csv
+decision_log_file = agent_decisions.log
+log_level = INFO

@@ -1,0 +1,9 @@
+[FYERS]
+# Fyers API v3 Credentials
+# Get your credentials from: https://myapi.fyers.in/dashboard
+
+# Your Fyers access token (generate from API dashboard)
+access_token = YOUR_ACCESS_TOKEN
+
+# Your Fyers client ID (APP ID from dashboard)
+client_id = YOUR_CLIENT_ID
