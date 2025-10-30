@@ -1,4 +1,4 @@
-# DeepSeek Trading Agent Requirements
+# Claude AI Trading Agent Requirements
 
 # Anthropic Claude API
 anthropic>=0.40.0
