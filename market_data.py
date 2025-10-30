@@ -37,10 +37,16 @@ class MarketDataProvider:
         try:
             response = self.fyers.quotes({"symbols": self.index_symbol})
 
+            self.logger.debug(f"Price API response: {response}")
+
             if response and response.get("s") == "ok":
                 data = response.get("d", [])
                 if data and len(data) > 0:
-                    return float(data[0].get("v", {}).get("lp", 0))
+                    price = float(data[0].get("v", {}).get("lp", 0))
+                    self.logger.info(f"Current {self.index} price: {price}")
+                    return price
+            else:
+                self.logger.error(f"Price API failed: {response}")
 
             return 0.0
 
@@ -80,8 +86,13 @@ class MarketDataProvider:
 
             response = self.fyers.history(data=data)
 
+            self.logger.info(f"Fyers API request: {data}")
+            self.logger.info(f"Fyers API response: {response}")
+
             if response and response.get("s") == "ok":
                 candles_data = response.get("candles", [])
+
+                self.logger.info(f"Received {len(candles_data)} candles from Fyers")
 
                 # Convert to list of dicts
                 candle_list = []
@@ -97,6 +108,9 @@ class MarketDataProvider:
                         })
 
                 return candle_list[-candles:]  # Return last N candles
+            else:
+                self.logger.error(f"Fyers history API failed. Status: {response.get('s') if response else 'No response'}, "
+                                f"Message: {response.get('message') if response else 'None'}")
 
             return []
 
