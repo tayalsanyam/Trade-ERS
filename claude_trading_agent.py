@@ -169,6 +169,9 @@ def print_status(orchestrator: TradingOrchestrator, logger):
 
 def main():
     """Main execution loop"""
+    logger = None  # Initialize logger as None
+    orchestrator = None  # Initialize orchestrator as None
+
     try:
         # Load configuration
         config = load_config()
@@ -319,25 +322,38 @@ def main():
                 time.sleep(config['check_interval_seconds'])
 
     except KeyboardInterrupt:
-        logger.info("\n" + "=" * 80)
-        logger.info("SHUTTING DOWN")
-        logger.info("=" * 80)
+        if logger:
+            logger.info("\n" + "=" * 80)
+            logger.info("SHUTTING DOWN")
+            logger.info("=" * 80)
+        else:
+            print("\nSHUTTING DOWN")
 
         # Close any active positions
-        if orchestrator.trade_manager.has_active_position():
-            logger.info("Closing active position...")
+        if orchestrator and orchestrator.trade_manager.has_active_position():
+            if logger:
+                logger.info("Closing active position...")
             result = orchestrator.close_position_and_update("MANUAL_SHUTDOWN")
-            if result.get("success"):
+            if result.get("success") and logger:
                 logger.info("Position closed successfully")
 
         # Print final statistics
-        print_status(orchestrator, logger)
+        if orchestrator and logger:
+            print_status(orchestrator, logger)
 
-        logger.info("\nClaude AI Trading Agent stopped")
-        logger.info("=" * 80)
+        if logger:
+            logger.info("\nClaude AI Trading Agent stopped")
+            logger.info("=" * 80)
+        else:
+            print("\nClaude AI Trading Agent stopped")
 
     except Exception as e:
-        logger.error(f"Fatal error: {str(e)}", exc_info=True)
+        if logger:
+            logger.error(f"Fatal error: {str(e)}", exc_info=True)
+        else:
+            print(f"Fatal error: {str(e)}")
+            import traceback
+            traceback.print_exc()
         sys.exit(1)
 
 
