@@ -63,7 +63,7 @@ state_file = data/agent_state.json
 [LOGGING]
 # Logging Configuration
 log_dir = logs/
-agent_log_file = deepseek_agent.log
+agent_log_file = claude_agent.log
 trade_log_file = agent_trades.csv
 decision_log_file = agent_decisions.log
 log_level = INFO

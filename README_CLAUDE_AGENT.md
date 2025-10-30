@@ -1,6 +1,6 @@
-# DeepSeek Trading Agent System
+# Claude AI Trading Agent
 
-Clean, focused NSE options trading powered by Claude Sonnet AI.
+Clean, focused NSE options trading powered by Claude Sonnet 4.
 
 ## Architecture
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 #### A. Anthropic API Key
 
-Edit `config_deepseek_agent.ini`:
+Edit `config_trading_agent.ini`:
 
 ```ini
 [ANTHROPIC]
@@ -67,7 +67,7 @@ Get Fyers credentials from: https://myapi.fyers.in/dashboard
 
 #### C. Trading Parameters
 
-Review and adjust `config_deepseek_agent.ini`:
+Review and adjust `config_trading_agent.ini`:
 
 ```ini
 [TRADING]
@@ -87,7 +87,7 @@ target_profit_percent = 3.0
 ### 3. Run the Agent
 
 ```bash
-python deepseek_trading_agent.py
+python claude_trading_agent.py
 ```
 
 ## Trading Strategy
@@ -201,7 +201,7 @@ loss_reduction_multiplier = 0.5
 
 ### Real-time Logs
 
-All activity is logged to `logs/deepseek_agent.log`:
+All activity is logged to `logs/claude_agent.log`:
 
 ```
 2025-10-30 10:15:00 - Orchestrator - INFO - Decision: BUY_CALL (Confidence: 0.78)
@@ -240,21 +240,21 @@ Agent state is saved to `data/agent_state.json` and includes:
 
 ```
 Trade-ERS/
-├── deepseek_trading_agent.py       # Main execution script
-├── orchestrator.py                 # Decision-making orchestrator
-├── trade_manager.py                # Order & position management
-├── market_data.py                  # Data fetching & indicators
+├── claude_trading_agent.py        # Main execution script
+├── orchestrator.py                # Decision-making orchestrator
+├── trade_manager.py               # Order & position management
+├── market_data.py                 # Data fetching & indicators
 ├── agents/
 │   ├── __init__.py
-│   ├── base_agent.py              # Base agent with Claude integration
-│   ├── sentiment_agent.py         # Market sentiment analysis
-│   ├── indicator_agent.py         # Technical indicator analysis
-│   └── price_agent.py             # Price action analysis
-├── config_deepseek_agent.ini      # Main configuration
-├── config_fyers.ini               # Fyers API credentials
-├── requirements.txt               # Python dependencies
-├── logs/                          # Log files
-└── data/                          # State persistence
+│   ├── base_agent.py             # Base agent with Claude integration
+│   ├── sentiment_agent.py        # Market sentiment analysis
+│   ├── indicator_agent.py        # Technical indicator analysis
+│   └── price_agent.py            # Price action analysis
+├── config_trading_agent.ini      # Main configuration
+├── config_fyers.ini              # Fyers API credentials
+├── requirements.txt              # Python dependencies
+├── logs/                         # Log files
+└── data/                         # State persistence
 ```
 
 ## Safety Features
@@ -302,7 +302,7 @@ The agent tracks:
 - **Average P&L**: Per trade profitability
 - **Sharpe Ratio**: Risk-adjusted returns (in development)
 
-Review `logs/deepseek_agent.log` for detailed performance metrics.
+Review `logs/claude_agent.log` for detailed performance metrics.
 
 ## Disclaimer
 

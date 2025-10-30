@@ -1,4 +1,4 @@
-# DeepSeek Trading Agent - Quick Start Guide
+# Claude AI Trading Agent - Quick Start Guide
 
 ## 🚀 Getting Started in 5 Minutes
 
@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ### Step 2: Configure API Keys
 
 #### Anthropic Claude API
-Edit `config_deepseek_agent.ini`:
+Edit `config_trading_agent.ini`:
 ```ini
 [ANTHROPIC]
 api_key = sk-ant-xxxxxxxxxxxxxxxxxxxxx  # Your API key
@@ -38,7 +38,7 @@ bash setup_guide.sh
 ### Step 4: Start Trading
 
 ```bash
-python3 deepseek_trading_agent.py
+python3 claude_trading_agent.py
 ```
 
 Press `Ctrl+C` to stop.
@@ -54,7 +54,7 @@ Press `Ctrl+C` to stop.
    python3 reset_daily_state.py
    ```
 
-2. **Update expiry date** in `config_deepseek_agent.ini` if needed:
+2. **Update expiry date** in `config_trading_agent.ini` if needed:
    ```ini
    [TRADING]
    expiry_date = 2025-11-04  # Current weekly expiry
@@ -69,19 +69,19 @@ Press `Ctrl+C` to stop.
 
 1. **Start the agent**:
    ```bash
-   python3 deepseek_trading_agent.py
+   python3 claude_trading_agent.py
    ```
 
 2. **Monitor logs** (in another terminal):
    ```bash
-   tail -f logs/deepseek_agent.log
+   tail -f logs/claude_agent.log
    ```
 
 ### After Market Close
 
 1. **Review logs**:
    ```bash
-   cat logs/deepseek_agent.log | grep "CURRENT STATUS" -A 10
+   cat logs/claude_agent.log | grep "CURRENT STATUS" -A 10
    ```
 
 2. **Check state**:
@@ -200,26 +200,26 @@ Reasoning: Bullish sentiment | Technical: RSI at 28 - Oversold | Price action: H
 ### Check if Agent is Running
 
 ```bash
-ps aux | grep deepseek_trading_agent
+ps aux | grep claude_trading_agent
 ```
 
 ### View Live Logs
 
 ```bash
-tail -f logs/deepseek_agent.log
+tail -f logs/claude_agent.log
 ```
 
 ### Filter for Specific Events
 
 ```bash
 # Show only trades
-grep "Trade executed" logs/deepseek_agent.log
+grep "Trade executed" logs/claude_agent.log
 
 # Show only decisions
-grep "Decision:" logs/deepseek_agent.log
+grep "Decision:" logs/claude_agent.log
 
 # Show only P&L
-grep "P&L" logs/deepseek_agent.log
+grep "P&L" logs/claude_agent.log
 ```
 
 ### Check Agent State
@@ -407,7 +407,7 @@ Before going live:
 - [ ] Backup of previous state
 - [ ] Monitoring setup ready
 
-**Ready to trade? Run: `python3 deepseek_trading_agent.py`**
+**Ready to trade? Run: `python3 claude_trading_agent.py`**
 
 ---
 

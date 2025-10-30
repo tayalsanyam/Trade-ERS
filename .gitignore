@@ -1,8 +1,8 @@
-# DeepSeek Trading Agent - Git Ignore
+# Claude AI Trading Agent - Git Ignore
 
 # Configuration files with sensitive data
 config_fyers.ini
-config_deepseek_agent.ini
+config_trading_agent.ini
 
 # Logs
 logs/

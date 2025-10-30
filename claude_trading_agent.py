@@ -1,6 +1,6 @@
 """
-DeepSeek Trading Agent - Main Execution Script
-Clean, focused NSE options trading with Claude Sonnet
+Claude AI Trading Agent - Main Execution Script
+Clean, focused NSE options trading powered by Claude Sonnet 4
 """
 
 import logging
@@ -35,13 +35,13 @@ def setup_logging(log_dir: str, log_file: str, log_level: str = "INFO"):
 
     logger = logging.getLogger(__name__)
     logger.info("=" * 80)
-    logger.info("DeepSeek Trading Agent Starting")
+    logger.info("Claude AI Trading Agent Starting")
     logger.info("=" * 80)
 
     return logger
 
 
-def load_config(config_file: str = "config_deepseek_agent.ini") -> dict:
+def load_config(config_file: str = "config_trading_agent.ini") -> dict:
     """Load configuration from INI file"""
     config = configparser.ConfigParser()
     config.read(config_file)
@@ -333,7 +333,7 @@ def main():
         # Print final statistics
         print_status(orchestrator, logger)
 
-        logger.info("\nDeepSeek Trading Agent stopped")
+        logger.info("\nClaude AI Trading Agent stopped")
         logger.info("=" * 80)
 
     except Exception as e:

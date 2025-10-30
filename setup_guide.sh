@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# DeepSeek Trading Agent - Setup Guide
+# Claude AI Trading Agent - Setup Guide
 # Run this script to check your setup
 
 echo "================================================================"
-echo "DeepSeek Trading Agent - Setup Verification"
+echo "Claude AI Trading Agent - Setup Verification"
 echo "================================================================"
 echo ""
 
@@ -45,7 +45,7 @@ echo ""
 
 # Check required files
 echo "Checking required files..."
-check_file "deepseek_trading_agent.py"
+check_file "claude_trading_agent.py"
 check_file "orchestrator.py"
 check_file "trade_manager.py"
 check_file "market_data.py"
@@ -59,10 +59,10 @@ echo ""
 
 # Check configuration files
 echo "Checking configuration files..."
-if check_file "config_deepseek_agent.ini"; then
-    if grep -q "YOUR_ANTHROPIC_API_KEY" config_deepseek_agent.ini; then
+if check_file "config_trading_agent.ini"; then
+    if grep -q "YOUR_ANTHROPIC_API_KEY" config_trading_agent.ini; then
         echo "  ⚠  WARNING: Anthropic API key not configured"
-        echo "     Edit config_deepseek_agent.ini and add your API key"
+        echo "     Edit config_trading_agent.ini and add your API key"
     fi
 fi
 
@@ -114,13 +114,13 @@ echo ""
 ALL_GOOD=true
 
 # Check critical items
-if [ ! -f "config_deepseek_agent.ini" ]; then
-    echo "✗ Missing: config_deepseek_agent.ini"
+if [ ! -f "config_trading_agent.ini" ]; then
+    echo "✗ Missing: config_trading_agent.ini"
     ALL_GOOD=false
 fi
 
-if grep -q "YOUR_ANTHROPIC_API_KEY" config_deepseek_agent.ini 2>/dev/null; then
-    echo "⚠  TODO: Configure Anthropic API key in config_deepseek_agent.ini"
+if grep -q "YOUR_ANTHROPIC_API_KEY" config_trading_agent.ini 2>/dev/null; then
+    echo "⚠  TODO: Configure Anthropic API key in config_trading_agent.ini"
     ALL_GOOD=false
 fi
 
@@ -138,7 +138,7 @@ if [ "$ALL_GOOD" = true ]; then
     echo "✓ Setup complete! Ready to run."
     echo ""
     echo "To start trading:"
-    echo "  python3 deepseek_trading_agent.py"
+    echo "  python3 claude_trading_agent.py"
     echo ""
     echo "To reset daily state:"
     echo "  python3 reset_daily_state.py"

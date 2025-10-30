@@ -56,7 +56,7 @@ def reset_state():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("DeepSeek Trading Agent - Daily State Reset")
+    print("Claude AI Trading Agent - Daily State Reset")
     print("=" * 60)
     print()
 
